@@ -1,5 +1,6 @@
 package rikcore.chatfirebase;
 
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.EditText;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,11 +33,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void writeOnDb(String message){
+    public void writeOnDb(String content){
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
+        Message message = new Message(Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ANDROID_ID), content);
 
         myRef.push().setValue(message);
     }
+
 }
