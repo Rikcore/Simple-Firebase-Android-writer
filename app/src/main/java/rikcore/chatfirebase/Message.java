@@ -3,36 +3,55 @@ package rikcore.chatfirebase;
 import java.io.Serializable;
 
 /**
- * Created by rikcore on 30/04/2018.
+ * Created by rikcore on 04/05/2018.
  */
 
 public class Message implements Serializable {
 
-    String id;
-    String content;
+    String color;
+    int x;
+    int y;
+    String message;
 
     public Message(){
 
     }
 
-    public Message (String id, String content){
-        this.id = id;
-        this.content = content;
+    public Message(String color, int x, int y){
+        this.color = color;
+        this.x = x;
+        this.y =y;
     }
 
-    public String getId() {
-        return id;
+    public String getColor() {
+        return color;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public String getContent() {
-        return content;
+    public int getX() {
+        return x;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message){
+        this.message = message;
     }
 }
